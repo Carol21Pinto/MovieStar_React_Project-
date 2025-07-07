@@ -41,13 +41,6 @@ const HomePage = ({ query, movies }) => {
     navigate(`/trailer/${movieId}`);
   };
 
-  // ✅ Logout handler
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.dispatchEvent(new Event('storage'));
-    navigate('/login');
-  };
-
   const renderMovieList = (movies) => {
     if (!movies || movies.length === 0) {
       return <p style={{ textAlign: 'center' }}>No movies found.</p>;
@@ -79,11 +72,6 @@ const HomePage = ({ query, movies }) => {
 
   return (
     <div>
-      {/* ✅ Logout button on top right */}
-      <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '1rem' }}>
-        <button onClick={handleLogout}>Logout</button>
-      </div>
-
       {query ? (
         <>
           <h2 style={{ textAlign: 'center', marginTop: '1rem' }}>
