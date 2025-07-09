@@ -82,3 +82,23 @@
   padding: 2rem;
   text-align: center;
 }
+.watchlist-button {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #888;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.watchlist-button:hover {
+  background-color: #666;
+}
+
+.watchlist-button.added {
+  background-color: #2e7d32; /* green for added */
+  border-color: #2e7d32;
+  color: #fff;
+}

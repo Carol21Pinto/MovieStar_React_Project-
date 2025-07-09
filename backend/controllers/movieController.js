@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-// Search movies
+// 🔍 Search movies
 const searchMovies = async (req, res) => {
   const query = req.query.query;
   if (!query) {
@@ -14,37 +14,34 @@ const searchMovies = async (req, res) => {
         query: query,
       },
     });
-    res.json({ results: response.data.results }); // ✅ wrapped
+    res.json({ results: response.data.results });
   } catch (error) {
     console.error('TMDb API error:', error.message);
     res.status(500).json({ message: 'Failed to fetch movies' });
   }
 };
 
-// Get trailer, title, overview, and cast
+// 🎬 Get trailer, title, overview, and cast
 const getMovieTrailer = async (req, res) => {
   const movieId = req.params.id;
   if (!movieId) return res.status(400).json({ message: 'Movie ID is required' });
 
   try {
-    // Trailer
     const videoRes = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos`, {
       params: { api_key: process.env.TMDB_API_KEY },
     });
 
-    // Movie Details
     const detailRes = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}`, {
       params: { api_key: process.env.TMDB_API_KEY },
     });
 
-    // Cast
     const creditsRes = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits`, {
       params: { api_key: process.env.TMDB_API_KEY },
     });
 
     const videos = videoRes.data.results;
     const details = detailRes.data;
-    const cast = creditsRes.data.cast.slice(0, 8); // top 8 cast members
+    const cast = creditsRes.data.cast.slice(0, 8); // Top 8 cast members
 
     const trailer = videos.find(
       (video) => video.type === 'Trailer' && video.site === 'YouTube'
@@ -69,36 +66,77 @@ const getMovieTrailer = async (req, res) => {
   }
 };
 
-
-// Trending movies
+// 🔥 Trending movies (original)
 const getTrendingMovies = async (req, res) => {
   try {
     const response = await axios.get('https://api.themoviedb.org/3/trending/movie/week', {
       params: { api_key: process.env.TMDB_API_KEY }
     });
-    res.json({ results: response.data.results }); // ✅ wrapped in { results }
+    res.json({ results: response.data.results });
   } catch (error) {
     console.error('Failed to fetch trending movies:', error.message);
     res.status(500).json({ message: 'Failed to fetch trending movies' });
   }
 };
 
-// Upcoming movies
+// 📅 Upcoming movies (original)
 const getUpcomingMovies = async (req, res) => {
   try {
     const response = await axios.get('https://api.themoviedb.org/3/movie/upcoming', {
       params: { api_key: process.env.TMDB_API_KEY }
     });
-    res.json({ results: response.data.results }); // ✅ wrapped in { results }
+    res.json({ results: response.data.results });
   } catch (error) {
     console.error('Failed to fetch upcoming movies:', error.message);
     res.status(500).json({ message: 'Failed to fetch upcoming movies' });
   }
 };
 
+
+
+// ✅ NEW: Filtered Trending Movies (2023+)
+const getFilteredTrendingMovies = async (req, res) => {
+  try {
+    const response = await axios.get('https://api.themoviedb.org/3/trending/movie/week', {
+      params: { api_key: process.env.TMDB_API_KEY }
+    });
+
+    const filtered = response.data.results.filter(movie => {
+      const year = parseInt(movie.release_date?.split('-')[0]);
+      return year >= 2023;
+    });
+
+    res.json({ results: filtered });
+  } catch (error) {
+    console.error('Failed to fetch filtered trending movies:', error.message);
+    res.status(500).json({ message: 'Failed to fetch filtered trending movies' });
+  }
+};
+
+// ✅ NEW: Filtered Upcoming Movies (future only)
+const getFilteredUpcomingMovies = async (req, res) => {
+  try {
+    const today = new Date().toISOString().split('T')[0];
+
+    const response = await axios.get('https://api.themoviedb.org/3/movie/upcoming', {
+      params: { api_key: process.env.TMDB_API_KEY }
+    });
+
+    const filtered = response.data.results.filter(movie => movie.release_date > today);
+
+    res.json({ results: filtered });
+  } catch (error) {
+    console.error('Failed to fetch filtered upcoming movies:', error.message);
+    res.status(500).json({ message: 'Failed to fetch filtered upcoming movies' });
+  }
+};
+
+// ✅ Export all
 module.exports = {
   searchMovies,
   getMovieTrailer,
   getTrendingMovies,
-  getUpcomingMovies
+  getUpcomingMovies,
+  getFilteredTrendingMovies,
+  getFilteredUpcomingMovies
 };

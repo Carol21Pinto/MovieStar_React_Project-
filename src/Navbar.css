@@ -62,3 +62,18 @@
 .logout-btn:hover {
   background-color: rgb(216, 5, 5);
 }
+
+.watchlist-btn {
+  margin-left: 10px;
+  padding: 8px 14px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.watchlist-btn:hover {
+  background-color: #666;
+}

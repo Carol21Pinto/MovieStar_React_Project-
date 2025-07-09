@@ -41,34 +41,40 @@ const HomePage = ({ query, movies }) => {
     navigate(`/trailer/${movieId}`);
   };
 
-  const renderMovieList = (movies) => {
-    if (!movies || movies.length === 0) {
-      return <p style={{ textAlign: 'center' }}>No movies found.</p>;
-    }
+const renderMovieList = (movies) => {
+  if (!movies || movies.length === 0) {
+    return <p style={{ textAlign: 'center' }}>No movies found.</p>;
+  }
 
-    return movies.map((movie) => (
-      <div key={movie.id} className="movie-card">
-        <div className="poster-container">
-          <img
-            src={
-              movie.poster_path
-                ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
-                : 'https://via.placeholder.com/200x300?text=No+Image'
-            }
-            alt={movie.title}
-          />
-          <div className="hover-overlay">
-            <p>📅 {movie.release_date || 'N/A'}</p>
-            <p>⭐ {movie.vote_average || 'N/A'}</p>
-          </div>
-        </div>
-        <div className="movie-info">
-          <h3>{movie.title}</h3>
-          <button onClick={() => handleWatchTrailer(movie.id)}>Watch Trailer</button>
+  return movies.map((movie) => (
+    <div
+      key={movie.id}
+      className="movie-card"
+      onClick={() => handleWatchTrailer(movie.id)}
+      style={{ cursor: 'pointer' }} // ✅ make the card clickable
+    >
+      <div className="poster-container">
+        <img
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+              : 'https://via.placeholder.com/200x300?text=No+Image'
+          }
+          alt={movie.title}
+        />
+        <div className="hover-overlay">
+          <p>📅 {movie.release_date || 'N/A'}</p>
+          <p>⭐ {movie.vote_average || 'N/A'}</p>
         </div>
       </div>
-    ));
-  };
+      <div className="movie-info">
+        <h3>{movie.title}</h3>
+        {/* 🔴 Removed the button */}
+      </div>
+    </div>
+  ));
+};
+
 
   return (
     <div>

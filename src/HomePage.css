@@ -24,3 +24,6 @@
     font-size: 30px;
     margin-bottom: 20px;
 }
+.movie-card {
+  cursor: pointer; /* ✅ Add this if not already */
+}
