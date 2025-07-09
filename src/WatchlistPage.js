@@ -23,7 +23,7 @@ const WatchlistPage = () => {
 
   return (
     <div>
-      {/* ✅ Home Button */}
+      {/* 🔙 Home Button */}
       <button
         style={{
           backgroundColor: '#f44336',
@@ -40,10 +40,10 @@ const WatchlistPage = () => {
         ⬅ Home
       </button>
 
-      <h2 style={{ textAlign: 'center' }}>🎞️ Your Watchlist</h2>
+      <h2 style={{ textAlign: 'center', color: 'white' }}>🎞️ Your Watchlist</h2>
 
       {watchlist.length === 0 ? (
-        <p style={{ textAlign: 'center' }}>No movies in watchlist</p>
+        <p style={{ textAlign: 'center', color: 'white' }}>No movies in watchlist</p>
       ) : (
         <div className="movie-results">
           {watchlist.map((movie) => (
@@ -74,7 +74,7 @@ const WatchlistPage = () => {
                 <h3>{movie.title}</h3>
                 <button
                   onClick={(e) => {
-                    e.stopPropagation(); // prevent navigation
+                    e.stopPropagation(); // prevent card click
                     handleRemove(movie.id);
                   }}
                 >

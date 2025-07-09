@@ -49,14 +49,19 @@ const getMovieTrailer = async (req, res) => {
 
     if (trailer) {
       res.json({
-        trailerUrl: `https://www.youtube.com/watch?v=${trailer.key}`,
-        title: details.title,
-        overview: details.overview,
-        cast: cast.map(actor => ({
-          name: actor.name,
-          profile_path: actor.profile_path,
-        })),
-      });
+      trailerUrl: `https://www.youtube.com/watch?v=${trailer.key}`,
+      title: details.title,
+      overview: details.overview,
+      cast: cast.map(actor => ({
+      name: actor.name,
+      profile_path: actor.profile_path,
+      })),
+    // ✅ Add these for watchlist use
+      id: details.id,
+      poster_path: details.poster_path,
+      release_date: details.release_date,
+      vote_average: details.vote_average
+    });
     } else {
       res.status(404).json({ message: 'Trailer not found' });
     }
