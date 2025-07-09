@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
-import { useNavigate, Link } from 'react-router-dom'; // ✅ import Link
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -24,10 +24,17 @@ const Login = () => {
 
       if (res.ok) {
         localStorage.setItem('token', data.token);
+
+  // ✅ Fix: Save user name and email to localStorage
+        localStorage.setItem(
+        'user',
+        JSON.stringify({ name: data.name, email: email })
+        );
+
         setMessage('Login successful!');
         navigate('/home');
-        window.location.reload(); // ✅ This will re-evaluate isAuthenticated in App.js
-    } else {
+        window.location.reload(); // optional if not using global state
+      }else {
         setMessage(data.message || 'Login failed');
       }
     } catch (err) {
@@ -61,7 +68,6 @@ const Login = () => {
 
       {message && <p className="login-message">{message}</p>}
 
-      {/* ✅ Hyperlink to signup */}
       <p style={{ marginTop: '10px' }}>
         Don’t have an account? <Link to="/signup">Create new account</Link>
       </p>

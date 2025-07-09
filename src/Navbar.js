@@ -1,22 +1,26 @@
-import './Navbar.css';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = ({ onSearch }) => {
   const navigate = useNavigate();
+  const [showProfile, setShowProfile] = useState(false);
+  const [user, setUser] = useState(null);
 
-  const handleInputChange = (e) => {
-    onSearch(e.target.value);
-  };
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) setUser(JSON.parse(storedUser));
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     window.dispatchEvent(new Event('storage'));
-    window.location.href = '/login'; // or use navigate() if you prefer
+    window.location.href = '/login';
   };
 
-  const goToWatchlist = () => {
-    navigate('/watchlist');
-  };
+  const toggleProfile = () => setShowProfile(!showProfile);
+  const goToWatchlist = () => navigate('/watchlist');
 
   return (
     <nav className="navbar">
@@ -26,10 +30,28 @@ const Navbar = ({ onSearch }) => {
         <input
           type="text"
           placeholder="Search for a movie..."
-          onChange={handleInputChange}
+          onChange={(e) => onSearch(e.target.value)}
         />
         <button className="watchlist-btn" onClick={goToWatchlist}>📽 Watchlist</button>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+
+        {user && (
+          <div className="profile-wrapper">
+            <img
+              src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
+              className="profile-icon"
+              onClick={toggleProfile}
+              alt="Profile"
+            />
+
+            {showProfile && (
+              <div className="profile-dropdown">
+                <p><strong>{user.name}</strong></p>
+                <p>{user.email}</p>
+                <button onClick={handleLogout}>Logout</button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </nav>
   );

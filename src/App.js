@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import TrailerPage from './TrailerPage';
 import Navbar from './Navbar';
 import WatchlistPage from './WatchlistPage';
+import ProfilePage from './ProfilePage';
 
 // Global context for watchlist
 export const WatchlistContext = createContext();
@@ -64,6 +65,7 @@ const AppContent = ({ isAuthenticated }) => {
         <Route path="/" element={!isAuthenticated ? <Navigate to="/signup" /> : <Navigate to="/home" />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/home" element={isAuthenticated ? <HomePage query={query} movies={searchResults} /> : <Navigate to="/login" />} />
         <Route path="/trailer/:id" element={<TrailerPage />} />
         <Route path="/watchlist" element={<WatchlistPage />} />
