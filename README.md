@@ -1,10 +1,10 @@
-# MovieStar React Project
+<h2 align="center" > MovieStar</h2>
 
-![Last Commit](https://img.shields.io/github/last-commit/Carol21Pinto/MovieStar_React_Project-.svg)
+<!--![Last Commit](https://img.shields.io/github/last-commit/Carol21Pinto/MovieStar_React_Project-.svg)
 ![Languages](https://img.shields.io/github/languages/count/Carol21Pinto/MovieStar_React_Project-.svg)
 ![Top Language](https://img.shields.io/github/languages/top/Carol21Pinto/MovieStar_React_Project-.svg)
 ![Repo Size](https://img.shields.io/github/repo-size/Carol21Pinto/MovieStar_React_Project-.svg)
-
+-->
 > **Bring Movies to Life, Instantly and Seamlessly**
 
 ---
