@@ -191,7 +191,7 @@ This project is licensed under the [MIT License](LICENSE).
 **Carol Pinto**
 
 * GitHub: [@Carol21Pinto](https://github.com/Carol21Pinto)
-* Email: [carol.pinto@example.com](mailto:carol.pinto@example.com)
+* Email: [carolpintopintopinto@gmail.com](mailto:carolpintopintopinto@gmail.com)
 
 ---
 
@@ -202,8 +202,12 @@ This project is licensed under the [MIT License](LICENSE).
 * [Create React App](https://create-react-app.dev/) boilerplate
 
 ---
+👥 Collaborators
 
-> Made with ❤️ by Carol Pinto
+Carol Pinto - [@Carol21Pinto](https://github.com/Carol21Pinto)
 
-```
+Rahul M - [@RahulMGatty](https://github.com/RahulMGatty)
+
+Ashith Fernandes - [@spideyashith](https://github.com/spideyashith)
+
 
