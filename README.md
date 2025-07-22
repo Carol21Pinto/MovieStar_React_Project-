@@ -1,70 +1,209 @@
-# Getting Started with Create React App
+# MovieStar React Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Last Commit](https://img.shields.io/github/last-commit/Carol21Pinto/MovieStar_React_Project-.svg)
+![Languages](https://img.shields.io/github/languages/count/Carol21Pinto/MovieStar_React_Project-.svg)
+![Top Language](https://img.shields.io/github/languages/top/Carol21Pinto/MovieStar_React_Project-.svg)
+![Repo Size](https://img.shields.io/github/repo-size/Carol21Pinto/MovieStar_React_Project-.svg)
 
-## Available Scripts
+> **Bring Movies to Life, Instantly and Seamlessly**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🛠 Built With
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend:** React, Context API, Axios  
+- **Backend:** Node.js, Express  
+- **Database:** MongoDB, Mongoose  
+- **Auth:** JWT, bcrypt  
+- **Styling:** CSS (Custom Dark Theme)  
+- **External APIs:** TMDb, YouTube (embedded trailers)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📖 Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. [Overview](#overview)  
+2. [Features](#features)  
+3. [Demo](#demo)  
+4. [Prerequisites](#prerequisites)  
+5. [Installation](#installation)  
+6. [Usage](#usage)  
+7. [Running Tests](#running-tests)  
+8. [Project Structure](#project-structure)  
+9. [Contributing](#contributing)  
+10. [License](#license)  
+11. [Contact](#contact)  
+12. [Acknowledgments](#acknowledgments)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧐 Overview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+MovieStar is a full-stack MERN application tailored for movie enthusiasts. It lets users:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Browse** trending & upcoming movies  
+- **Search** any movie by title  
+- **Watch** trailers without leaving the app  
+- **View** movie details, overview & cast  
+- **Save** favorites with a personal watchlist  
+- **Securely** sign up, log in & log out  
 
-### `npm run eject`
+Built for responsiveness and performance, MovieStar offers an engaging, dark-themed UI with smooth client-side routing.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✨ Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 🎬 **Trending & Upcoming** movie sections on the homepage  
+- 🔎 **Instant Search** with live suggestions  
+- ▶️ **Embedded Trailers** via YouTube iframe  
+- 📋 **Movie Details**: overview, release date, rating  
+- 🎭 **Cast Profiles** with headshots  
+- 🌟 **Watchlist** powered by React Context  
+- 🔒 **Auth Flow**: JWT + bcrypt, signup/login/logout  
+- 🎨 **Dark Theme** with hover overlays on posters  
+- ⚙️ **Error Handling** & loading spinners for API calls  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🎥 Demo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> Live demo coming soon! (or link here if deployed)  
+> ![Demo GIF](link-to-demo.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🛠 Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Node.js** ≥ 16.x  
+- **npm** ≥ 8.x (or **yarn**)  
+- **MongoDB** running (local or Atlas)  
+- **TMDb API Key**  
+- **YouTube API Key** (optional if you embed trailers via TMDb)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🚀 Installation
 
-### Making a Progressive Web App
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/Carol21Pinto/MovieStar_React_Project-.git
+   cd MovieStar_React_Project-
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. **Create a `.env` file** in the root with:
 
-### Advanced Configuration
+   ```dotenv
+   PORT=5000
+   MONGO_URI=<your-mongodb-connection-string>
+   TMDB_API_KEY=<your-tmdb-api-key>
+   JWT_SECRET=<your-secret-key>
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+3. **Install dependencies**
 
-### Deployment
+   ```bash
+   # In the project root (backend)
+   npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   # In the client folder (frontend)
+   cd client
+   npm install
+   ```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 💻 Usage
+
+1. **Start the backend server**
+
+   ```bash
+   npm run server
+   ```
+
+   By default it runs on `http://localhost:5000`.
+
+2. **Start the React app**
+
+   ```bash
+   cd client
+   npm start
+   ```
+
+   The frontend will open at `http://localhost:3000`.
+
+3. **Sign up** for a new account, then **log in** to explore movies!
+
+---
+
+## ✅ Running Tests
+
+This project uses **Jest** and **React Testing Library** for unit & integration tests.
+
+```bash
+# From the project root
+npm test
+```
+
+---
+
+## 📂 Project Structure
+
+```
+/
+├── client/           # React frontend
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── context/  # Watchlist / Auth contexts
+│       ├── pages/
+│       ├── styles/
+│       └── App.js
+├── controllers/      # Express route handlers
+├── models/           # Mongoose schemas (User, Watchlist)
+├── routes/           # Express routers (auth, movies)
+├── middleware/       # Auth checks, error handlers
+├── .env
+└── server.js
+```
+
+---
+
+## 🤝 Contributing
+
+1. Fork this repo
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'feat: add new feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+Please follow the existing code style and include meaningful commit messages.
+
+---
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 📬 Contact
+
+**Carol Pinto**
+
+* GitHub: [@Carol21Pinto](https://github.com/Carol21Pinto)
+* Email: [carol.pinto@example.com](mailto:carol.pinto@example.com)
+
+---
+
+## 🙏 Acknowledgments
+
+* [TMDb API](https://www.themoviedb.org/) for movie data
+* [YouTube API](https://developers.google.com/youtube/) for trailers
+* [Create React App](https://create-react-app.dev/) boilerplate
+
+---
+
+> Made with ❤️ by Carol Pinto
+
+```
+
