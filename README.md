@@ -56,9 +56,8 @@ Responsive, performant, and visually appealing with a dark UI theme.
 ## 🎥 Demo
 
 > 🚀 **Live demo coming soon**  
-> _Insert link or deployment status here_  
 >  
-> ![Demo Preview](link-to-demo.gif)
+> ![Demo Preview](link-to-demo.gif
 
 ---
 
