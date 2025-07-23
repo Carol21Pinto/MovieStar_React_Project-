@@ -56,9 +56,6 @@ Responsive, performant, and visually appealing with a dark UI theme.
 ## 🎥 Demo
 
 > 🚀 **Live demo coming soon**  
->  
-> ![Demo Preview](link-to-demo.gif
-
 ---
 
 ## ⚙️ Getting Started
