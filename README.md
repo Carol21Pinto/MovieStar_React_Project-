@@ -1,13 +1,17 @@
-<h2 align="center" > MovieStar</h2>
 
-<!--![Last Commit](https://img.shields.io/github/last-commit/Carol21Pinto/MovieStar_React_Project-.svg)
-![Languages](https://img.shields.io/github/languages/count/Carol21Pinto/MovieStar_React_Project-.svg)
-![Top Language](https://img.shields.io/github/languages/top/Carol21Pinto/MovieStar_React_Project-.svg)
-![Repo Size](https://img.shields.io/github/repo-size/Carol21Pinto/MovieStar_React_Project-.svg)
--->
-> **Bring Movies to Life, Instantly and Seamlessly**
+ <div align="center">
 
----
+## 🎬 **MOVIESTAR** 🍿
+
+  <em align="center" style="color:#555; font-size:1.2em;">Search • Explore • Enjoy ✨</em>
+  </div>
+
+  <p align="center">
+    <img src="https://img.shields.io/github/license/Carol21Pinto/MovieStar_React_Project-?style=for-the-badge" alt="License Badge"/>
+    <img src="https://img.shields.io/github/languages/top/Carol21Pinto/MovieStar_React_Project-?style=for-the-badge" alt="Top Language Badge"/>
+    <img src="https://img.shields.io/github/issues/Carol21Pinto/MovieStar_React_Project-?style=for-the-badge" alt="Issues Badge"/>
+    <img src="https://img.shields.io/github/contributors/Carol21Pinto/MovieStar_React_Project-?style=for-the-badge" alt="Contributors Badge"/>
+  </p>
 
 ## 🛠 Built With
 
